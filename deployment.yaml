@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stress-test-deployment
+  labels:
+    app: stress-test
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: stress-test
+  template:
+    metadata:
+      labels:
+        app: stress-test
+    spec:
+      containers:
+        - name: stress-test-container
+          image: divya715/stresstest-image
+          env:
+            - name: STRESS_TEST_TYPE
+              value: "network"

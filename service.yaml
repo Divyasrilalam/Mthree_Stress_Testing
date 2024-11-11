@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: stress-test-service
+spec:
+  type: ClusterIP  # Use ClusterIP for internal access within the cluster
+  selector:
+    app: stress-test
+  ports:
+    - port: 80          # This is the port that will be exposed by the service
+      targetPort: 80    # This is just a placeholder; application does not listen on this port
